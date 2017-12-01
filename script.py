@@ -5,22 +5,22 @@ import math
 
 
 ###############################
-percTest = 0.7 # taille de l'echantillon de test
+percTest = 0.5 # taille de l'echantillon de test
 ###############################
 
 def poids_matrice_confusion(matriceConfusion):
-    return (matriceConfusion[0]-100*matriceConfusion[1]-10*matriceConfusion[2]+matriceConfusion[3])
+    return (10*matriceConfusion[0]-10*matriceConfusion[1]-1*matriceConfusion[2] + 0.001*matriceConfusion[3])
 
-def calcule_matrice_confusion(y_pred):
+def calcule_matrice_confusion(y_pred,y_reel):
     matriceConfusion = [0,0,0,0]
     for i in range(len(y_pred)):
-        if(y_pred[i] == y_test[i] and y_test[i] == 0):
+        if(y_pred[i] == y_reel[i] and y_reel[i] == 0):
             matriceConfusion[3]+=1
-        elif(y_pred[i] == y_test[i] and y_test[i] == 1):
+        elif(y_pred[i] == y_reel[i] and y_reel[i] == 1):
             matriceConfusion[0]+=1
-        elif(y_pred[i] != y_test[i] and y_test[i] == 0):
+        elif(y_pred[i] != y_reel[i] and y_reel[i] == 0):
             matriceConfusion[2]+=1
-        elif(y_pred[i] != y_test[i] and y_test[i] == 1):
+        elif(y_pred[i] != y_reel[i] and y_reel[i] == 1):
             matriceConfusion[1]+=1
     #matriceConfusion =  [i *100/len(y_test) for i in matriceConfusion]
     print(" %d       %d\n %d      %d"%(matriceConfusion[0],matriceConfusion[1],matriceConfusion[2],matriceConfusion[3]) )
@@ -46,9 +46,17 @@ y_test = Y[train:total]
 
 
 hauteur = 0
-poids = 0
+poids = -1755*10
+max_leaf_number = 2
+coeffApprentissage = 0.0
+
+print "==================="
+print "hauteur : ",hauteur
+print "==================="
 
 #boucle pour la hauteur de l'arbre
+
+
 for i in range (1,27):
     clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = i, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = None, min_impurity_decrease = 0.0, class_weight = None, presort = False)
     clf_gini.fit(X_train, y_train)
@@ -62,17 +70,44 @@ for i in range (1,27):
     y_pred = numpy.asarray(map(int, y_pred))
     y_test = numpy.asarray(map(int, y_test))
 
-    print ("\n \n + %d",i)
-    matriceConfusion = calcule_matrice_confusion(y_pred)
-    if (poids < calcule_matrice_confusion(y_pred)) :
+    print ("\n \n %d"%i)
+    matriceConfusion = calcule_matrice_confusion(y_pred,y_test)
+    print ("poids : ",poids_matrice_confusion(matriceConfusion))
+    if (poids < poids_matrice_confusion(matriceConfusion)) :
         hauteur = i
-        poids = max(poids,calcule_matrice_confusion(y_pred))
-
-print( "la joie et la bonne humeur",hauteur)
-
+        poids = max(poids,poids_matrice_confusion(matriceConfusion))
+        print ("hauteur : ",hauteur)
 
 
-clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = hauteur, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = None, min_impurity_decrease = 0.0, class_weight = None, presort = False)
+print( "la hauteur optimal de l'arbre :",hauteur)
+
+poids = -1755*10
+
+# boucle pour determine le nombre oprimal de feuille :
+for i in range (2,2^hauteur+1):
+    print ("hauteur : ",hauteur)
+    clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = hauteur, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = i, min_impurity_decrease = 0.0, class_weight = None, presort = False)
+    clf_gini.fit(X_train, y_train)
+
+    y_pred = clf_gini.predict(X_test)
+    y_train = numpy.asarray(map(int, y_train))
+    y_pred = numpy.asarray(map(int, y_pred))
+
+    matriceConfusion = calcule_matrice_confusion(y_pred,y_test)
+
+    print ("\n \n + %d",i)
+    print ("poids : ",poids_matrice_confusion(matriceConfusion))
+    print ("nombre de feuille : ",max_leaf_number)
+    if (poids < poids_matrice_confusion(matriceConfusion)) :
+        max_leaf_number = i
+        poids = poids_matrice_confusion(matriceConfusion)
+
+print( "le nombre optimal de feuille de l'arbre est :",max_leaf_number)
+
+
+#clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = hauteur, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = max_leaf_number, min_impurity_decrease = 0.0, class_weight = None, presort = False)
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = None, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = None, min_impurity_decrease = 0.0, class_weight = None, presort = False)
+
 
 clf_gini.fit(X_train, y_train)
 
@@ -119,10 +154,10 @@ def calcul_precision_rappel(matriceConfusion):
 
 
 print ("\nentrainement")
-matriceConfusion = calcule_matrice_confusion(y_pred_train);
+matriceConfusion = calcule_matrice_confusion(y_pred_train,y_train);
 calcul_precision_rappel(matriceConfusion);
 
 print (" \n======================================== \n")
 print ("\ntest")
-matriceConfusion = calcule_matrice_confusion(y_pred);
+matriceConfusion = calcule_matrice_confusion(y_pred,y_test);
 calcul_precision_rappel(matriceConfusion);
