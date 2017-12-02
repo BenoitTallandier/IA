@@ -1,4 +1,5 @@
 from sklearn import tree
+from sklearn.datasets import load_iris
 import numpy
 import csv
 
@@ -25,7 +26,8 @@ X_test = X[train:total]
 y_train = Y[0:train]
 y_test = Y[train:total]
 
-clf_gini = tree.DecisionTreeClassifier(criterion = "entropy",splitter = "best", max_depth = None, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 100, min_impurity_decrease = 0, class_weight = None, presort = False)
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "entropy",splitter = "best", max_depth = None, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 20, min_impurity_decrease = 0, class_weight = None, presort = False)
 clf_gini.fit(X_train, y_train)
 
 y_pred = clf_gini.predict(X_test)
@@ -71,3 +73,6 @@ for i in range(len(y_pred)):
 #matriceConfusion =  [i *100/len(y_test) for i in matriceConfusion]
 print "\ntest"
 print(" %d       %d\n %d      %d"%(matriceConfusion[0],matriceConfusion[1],matriceConfusion[2],matriceConfusion[3]) )
+
+
+tree.export_graphviz(clf_gini,out_file='tree.dot')
