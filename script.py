@@ -40,9 +40,9 @@ y_pred = numpy.asarray(map(int, y_pred))
 y_test = numpy.asarray(map(int, y_test))
 
 
-matriceConfusion = [0,0,0,0] 
+matriceConfusion = [0,0,0,0]
 # 0: vrai risque            1 : risque non detecte
-#    
+#
 # 2: faux risque detecte    3 : pas de risque detecte (reel, predit)
 
 for i in range(len(y_pred_train)):
@@ -59,7 +59,7 @@ print "train"
 print(" %d       %d\n %d      %d"%(matriceConfusion[0],matriceConfusion[1],matriceConfusion[2],matriceConfusion[3]) )
 
 
-matriceConfusion = [0,0,0,0] 
+matriceConfusion = [0,0,0,0]
 
 for i in range(len(y_pred)):
     if(y_pred[i] == y_test[i] and y_test[i] == 0):
