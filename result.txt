@@ -1,0 +1,371 @@
+entrainement
+ 222       82
+ 732      1442
+Rappel des positifs : 0.730263
+Precision des positifs : 0.232704
+Rappel des negatif : 0.663293 
+Precision des negatif : 0.946194
+ 
+======================================== 
+
+
+test
+ 26       10
+ 86      154
+Rappel des positifs : 0.722222
+Precision des positifs : 0.232143
+Rappel des negatif : 0.641667 
+Precision des negatif : 0.939024
+
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 100, min_samples_split = 10, min_samples_leaf = 10, min_weight_fraction_leaf = 0.01, max_features = None, random_state = None, max_leaf_nodes = 100, min_impurity_decrease = 0, class_weight = {0:10,1:90}, presort = False, min_impurity_split = 0)
+
+entrainement
+ 264       40
+ 532      1642
+Rappel des positifs : 0.868421
+Precision des positifs : 0.331658
+Rappel des negatif : 0.755290 
+Precision des negatif : 0.976219
+ 
+======================================== 
+
+
+test
+ 30       6
+ 65      175
+Rappel des positifs : 0.833333
+Precision des positifs : 0.315789
+Rappel des negatif : 0.729167 
+Precision des negatif : 0.966851
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 100, min_samples_split = 10, min_samples_leaf = 10, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 100, min_impurity_decrease = 0, class_weight = {0:10,1:90}, presort = False, min_impurity_split = 0)
+
+
+entrainement
+ 298       6
+ 393      1781
+Rappel des positifs : 0.980263
+Precision des positifs : 0.431259
+Rappel des negatif : 0.819227 
+Precision des negatif : 0.996642
+ 
+======================================== 
+
+
+test
+ 28       8
+ 60      180
+Rappel des positifs : 0.777778
+Precision des positifs : 0.318182
+Rappel des negatif : 0.750000 
+Precision des negatif : 0.957447
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 50, min_samples_split = 10, min_samples_leaf = 10, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 20, min_impurity_decrease = 0, class_weight = {0:10,1:90}, presort = False, min_impurity_split = 0.1)
+
+
+entrainement
+ 273       31
+ 596      1578
+Rappel des positifs : 0.898026
+Precision des positifs : 0.314154
+Rappel des negatif : 0.725851 
+Precision des negatif : 0.980733
+ 
+======================================== 
+
+
+test
+ 29       7
+ 73      167
+Rappel des positifs : 0.805556
+Precision des positifs : 0.284314
+Rappel des negatif : 0.695833 
+Precision des negatif : 0.959770
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 50, min_samples_split = 10, min_samples_leaf = 10, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 20, min_impurity_decrease = 0, class_weight = {0:5,1:95}, presort = False, min_impurity_split = 0.1)
+entrainement
+ 301       3
+ 1043      1131
+Rappel des positifs : 0.990132
+Precision des positifs : 0.223958
+Rappel des negatif : 0.520239 
+Precision des negatif : 0.997354
+ 
+======================================== 
+
+
+test
+ 33       3
+ 123      117
+Rappel des positifs : 0.916667
+Precision des positifs : 0.211538
+Rappel des negatif : 0.487500 
+Precision des negatif : 0.975000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 50, min_samples_split = 10, min_samples_leaf = 10, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 25, min_impurity_decrease = 0, class_weight = {0:4,1:96}, presort = False, min_impurity_split = 0.1)
+
+
+
+entrainement
+ 303       1
+ 1009      1165
+Rappel des positifs : 0.996711
+Precision des positifs : 0.230945
+Rappel des negatif : 0.535879 
+Precision des negatif : 0.999142
+ 
+======================================== 
+
+
+test
+ 35       1
+ 118      122
+Rappel des positifs : 0.972222
+Precision des positifs : 0.228758
+Rappel des negatif : 0.508333 
+Precision des negatif : 0.991870
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 50, min_samples_split = 10, min_samples_leaf = 10, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 20, min_impurity_decrease = 0, class_weight = {0:1,1:99}, presort = False, min_impurity_split = 0.1)
+
+
+entrainement
+ 304       0
+ 1274      900
+Rappel des positifs : 1.000000
+Precision des positifs : 0.192649
+Rappel des negatif : 0.413983 
+Precision des negatif : 1.000000
+ 
+======================================== 
+
+
+test
+ 36       0
+ 156      84
+Rappel des positifs : 1.000000
+Precision des positifs : 0.187500
+Rappel des negatif : 0.350000 
+Precision des negatif : 1.000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 50, min_samples_split = 30, min_samples_leaf = 10, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 25, min_impurity_decrease = 0, class_weight = {0:4,1:96}, presort = False, min_impurity_split = 0.1)
+
+
+
+entrainement
+ 304       0
+ 1029      1145
+Rappel des positifs : 1.000000
+Precision des positifs : 0.228057
+Rappel des negatif : 0.526679 
+Precision des negatif : 1.000000
+ 
+======================================== 
+
+
+test
+ 36       0
+ 127      113
+Rappel des positifs : 1.000000
+Precision des positifs : 0.220859
+Rappel des negatif : 0.470833 
+Precision des negatif : 1.000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 100, min_samples_split = 30, min_samples_leaf = 10, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 200, min_impurity_decrease = 0, class_weight = {0:4,1:96}, presort = False, min_impurity_split = 0.1)
+
+
+
+entrainement
+ 303       1
+ 544      1630
+Rappel des positifs : 0.996711
+Precision des positifs : 0.357733
+Rappel des negatif : 0.749770 
+Precision des negatif : 0.999387
+ 
+======================================== 
+
+
+test
+ 33       3
+ 68      172
+Rappel des positifs : 0.916667
+Precision des positifs : 0.326733
+Rappel des negatif : 0.716667 
+Precision des negatif : 0.982857
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 100, min_samples_split = 30, min_samples_leaf = 10, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 200, min_impurity_decrease = 0, class_weight = {0:3,1:97}, presort = False, min_impurity_split = 0.1)
+
+entrainement
+ 304       0
+ 552      1622
+Rappel des positifs : 1.000000
+Precision des positifs : 0.355140
+Rappel des negatif : 0.746090 
+Precision des negatif : 1.000000
+ 
+======================================== 
+
+
+test
+ 36       0
+ 82      158
+Rappel des positifs : 1.000000
+Precision des positifs : 0.305085
+Rappel des negatif : 0.658333 
+Precision des negatif : 1.000000
+
+
+
+
+
+
+
+
+
+
+clf_gini = tree.DecisionTreeClassifier(criterion = "gini",splitter = "best", max_depth = 100, min_samples_split = 15, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = None, random_state = None, max_leaf_nodes = 200, min_impurity_decrease = 0, class_weight = {0:3,1:97}, presort = False, min_impurity_split = 0)
+
+
+
+entrainement
+ 304       0
+ 182      1992
+Rappel des positifs : 1.000000
+Precision des positifs : 0.625514
+Rappel des negatif : 0.916283 
+Precision des negatif : 1.000000
+ 
+======================================== 
+
+
+test
+ 36       0
+ 39      201
+Rappel des positifs : 1.000000
+Precision des positifs : 0.480000
+Rappel des negatif : 0.837500 
+Precision des negatif : 1.000000
+
+
